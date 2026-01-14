@@ -1,0 +1,27 @@
+cmake_minimum_required(VERSION 3.10)
+project(BacktestingEngine VERSION 1.0 LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# Source files
+set(SOURCES
+  src/main.cpp
+  src/Backtester.cpp
+  src/CSVLoader.cpp
+  src/MovingAverageStrategy.cpp
+)
+
+set(HEADERS
+  src/Backtester.h
+  src/CSVLoader.h
+  src/Strategy.h
+  src/MovingAverageStrategy.h
+  src/Trade.h
+)
+
+add_executable(backtester ${SOURCES} ${HEADERS})
+
+#Tests
+enable_testing()
+add_subdirectory(tests)
